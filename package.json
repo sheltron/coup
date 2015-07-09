@@ -1,0 +1,22 @@
+{
+  "name": "coup",
+  "version": "1.0.0",
+  "description": "A coup clone",
+  "main": "gruntfile.js",
+  "dependencies": {
+    "express": "^4.10.2",
+    "grunt": "~0.4.5",
+    "grunt-contrib-watch": "~0.6.1",
+    "node.extend": "^1.1.5",
+    "orm": "^2.1.26",
+    "socket.io": "^1.3.5"
+  },
+  "devDependencies": {
+    "bootstrap-sass": "latest",
+    "grunt-contrib-uglify": "latest",
+    "grunt-sass": "latest",
+    "node-bourbon": "^1.2.3"
+  },
+  "author": "@ceagon",
+  "license": "ISC"
+}
