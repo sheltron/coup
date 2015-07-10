@@ -1,0 +1,133 @@
+@import "../variables";
+
+$footer-height: 390px;
+
+@media(min-width: $screen-md-min) {
+	html {
+		position: relative;
+		min-height: 100%;
+	}
+
+	body {
+		margin: 0 0 $footer-height;
+	}
+}
+
+#footer {
+	width: 100%;
+	border-top: solid 5px $color-dust;
+	background: #e7e7e1;
+	@media(min-width: $screen-md-min) {
+		position: absolute;
+		left: 0;
+		bottom: 0;
+		height: $footer-height;
+	}
+
+	.primary {
+		background: $color-cream;
+		@media(min-width: $screen-md-min) {
+			height: 300px;
+		}
+	}
+
+	.widgets {
+		@extend .list-unstyled;
+
+		> li {
+			@include make-lg-column(3);
+			@include make-lg-column-push(1);
+			@extend .col-md-3rds;
+			padding-top: 42px;
+
+			h2 {
+				@extend .body-alt;
+				border-bottom: solid 1px $color-dust;
+				padding-bottom: 0.8em;
+				margin-bottom: 0.8em;
+			}
+
+			h3 {
+				text-transform: none;
+				line-height: 1.4;
+			}
+
+			a {
+				font-weight: 100;
+			}
+
+			ul {
+				@extend .list-unstyled;
+
+				li .time {
+					font-weight: 600;
+					color: $color-medium-gray;
+				}
+			}
+
+			&.widget_text {
+				p {
+					margin-bottom: 2em;
+				}
+			}
+		}
+	}
+
+	.secondary {
+		padding: 28px 0;
+		font-size: em(10);
+		color: $color-medium-gray;
+		@media(min-width: $screen-md-min) {
+			height: 86px;
+		}
+
+		p {
+			padding: 1em 0;
+		}
+
+		#linked-in {
+			position: relative;
+			top: -4px;
+		}
+		
+		.icon {
+			line-height: 1;
+			font-size: em(20);
+			margin-left: 1em;
+			vertical-align: middle;
+		}
+
+		.searchform {
+			@include make-md-column(2);
+			@include make-lg-column-push(1);
+		}
+
+		.social {
+			@include make-md-column(2);
+			@include make-lg-column-push(1);
+
+
+		}
+
+
+		.copyright {
+			@include make-lg-column(4);
+			@include make-md-column-push(0);
+			@include make-lg-column-push(1);
+			@media(min-width: $screen-md-min) {
+				text-align: right;
+			}
+
+			img {
+				margin: 0 0 0 1em;
+				@media(min-width: $screen-md-min) {
+					float: right;
+				}
+			}
+		}
+
+		@media(min-width: $screen-md-min) {
+			.searchform input { max-width: 240px; }
+		}
+	}
+}

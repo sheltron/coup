@@ -1,0 +1,145 @@
+@import "bourbon";
+@import "../variables";
+
+html.page-template-template-style-guide {
+
+	body {
+		padding: 40px 0;
+	}
+
+	#header, #footer {
+		display: none;
+	}
+
+	#content {
+		padding: 50px 60px;
+	}
+
+	section {
+		@include clearfix();
+		margin-bottom: 6em;
+	}
+
+	.section-header {
+		@include clearfix();
+		border-bottom: solid 2px $color-dust;
+		margin: 2em 0;
+
+		span {
+			@include make-lg-column(3);
+			padding-bottom: 1em;
+			text-align: right;
+		}
+	}
+
+	.swatches {
+		@include make-lg-column(7);
+		@include make-lg-column-push(3);
+
+		.swatch {
+			list-style: none;
+			margin-bottom: 2em;
+			text-align: left;
+
+			h4 {
+				margin: 0;
+			}
+
+			.hex {
+				text-transform: uppercase;
+
+				span { color: $color-dust; }
+			}
+
+			.swatch-square {
+				width: 96px;
+				height: 96px;
+				padding: 12px;
+				margin-bottom: 1em;
+				background: $brand-primary;
+				text-align: center;
+				color: #fff;
+				cursor: pointer;
+				display: table;
+
+				span {
+					display: table-cell;
+					vertical-align: middle;
+					font: italic 1em $font-family-serif;
+					@include opacity(0);
+					@include transform(translate(0, 4px));
+					@include transform(translate3d(0, 4px, 0));
+					@include transition(all 0.25s $brand-easing);
+				}
+
+				&:hover span {
+					@include transform(translate(0, 0));
+					@include transform(translate3d(0, 0, 0));
+					@include opacity(1);
+				}
+
+				&.grow-green { background-color: $color-grow-green; }
+				&.forest-green { background-color: $color-forest-green; }
+				&.sand { background-color: $color-sand; }
+				&.dark-sand { background-color: $color-dark-sand; }
+				&.tanner-blue { background-color: $color-tanner-blue; }
+				&.midnight-blue { background-color: $color-midnight-blue; }
+				&.cream { background-color: $color-cream; }
+				&.dust { background-color: $color-dust; }
+				&.gray { background-color: $color-gray; }
+				&.medium-gray { background-color: $color-medium-gray; }
+				&.light-gray { background-color: $color-light-gray; }
+			}
+		}
+	}
+
+	.term {
+		@include make-sm-column(3);
+		clear: left;
+		margin-bottom: 1em;
+
+		@media(min-width: $screen-sm-min) {
+			text-align: right;
+		}
+
+		h4 {
+			margin-bottom: 0;
+		}
+	}
+
+	.definition {
+		@include make-sm-column(7);
+		@include clearfix();
+		margin-bottom: 50px;
+		clear: right;
+
+		@media(min-width: $screen-sm-min) {
+			padding-left: 3em;
+			padding-right: 3em;
+		}
+	}
+
+	.border-between {
+		.col-xs-5 {
+			padding: 20px 30px;
+
+			&:first-child {
+				border-right: solid 1px $text-color;
+			}
+		}
+	}
+
+	.search-block {
+		padding: 16px 30px;
+		background: #e7e7e1;
+	}
+
+	.icons {
+		font-size: 2em;
+
+		a {
+			@include transition($brand-transition-all);
+		}
+	}
+
+}

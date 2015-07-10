@@ -1,0 +1,202 @@
+/*
+ * Fonts
+ */
+@font-face {
+	font-family: 'Aleo';
+	src: url('../fonts/aleo/Aleo-Bold-webfont.eot');
+	src: url('../fonts/aleo/Aleo-Bold-webfont.eot?#iefix') format('embedded-opentype'),
+	url('../fonts/aleo/Aleo-Bold-webfont.woff2') format('woff2'),
+	url('../fonts/aleo/Aleo-Bold-webfont.woff') format('woff'),
+	url('../fonts/aleo/Aleo-Bold-webfont.ttf') format('truetype');
+	font-weight: bold;
+	font-style: normal;
+}
+
+@font-face {
+	font-family: 'Aleo';
+	src: url('../fonts/aleo/Aleo-BoldItalic-webfont.eot');
+	src: url('../fonts/aleo/Aleo-BoldItalic-webfont.eot?#iefix') format('embedded-opentype'),
+	url('../fonts/aleo/Aleo-BoldItalic-webfont.woff2') format('woff2'),
+	url('../fonts/aleo/Aleo-BoldItalic-webfont.woff') format('woff'),
+	url('../fonts/aleo/Aleo-BoldItalic-webfont.ttf') format('truetype');
+	font-weight: bold;
+	font-style: italic;
+}
+
+@font-face {
+	font-family: 'Aleo';
+	src: url('../fonts/aleo/Aleo-Italic-webfont.eot');
+	src: url('../fonts/aleo/Aleo-Italic-webfont.eot?#iefix') format('embedded-opentype'),
+	url('../fonts/aleo/Aleo-Italic-webfont.woff2') format('woff2'),
+	url('../fonts/aleo/Aleo-Italic-webfont.woff') format('woff'),
+	url('../fonts/aleo/Aleo-Italic-webfont.ttf') format('truetype');
+	font-weight: normal;
+	font-style: italic;
+}
+
+@font-face {
+	font-family: 'Aleo';
+	src: url('../fonts/aleo/Aleo-Light-webfont.eot');
+	src: url('../fonts/aleo/Aleo-Light-webfont.eot?#iefix') format('embedded-opentype'),
+	url('../fonts/aleo/Aleo-Light-webfont.woff2') format('woff2'),
+	url('../fonts/aleo/Aleo-Light-webfont.woff') format('woff'),
+	url('../fonts/aleo/Aleo-Light-webfont.ttf') format('truetype');
+	font-weight: 100;
+	font-style: normal;
+}
+
+@font-face {
+	font-family: 'Aleo';
+	src: url('../fonts/aleo/Aleo-LightItalic-webfont.eot');
+	src: url('../fonts/aleo/Aleo-LightItalic-webfont.eot?#iefix') format('embedded-opentype'),
+	url('../fonts/aleo/Aleo-LightItalic-webfont.woff2') format('woff2'),
+	url('../fonts/aleo/Aleo-LightItalic-webfont.woff') format('woff'),
+	url('../fonts/aleo/Aleo-LightItalic-webfont.svg#aleolightitalic') format('svg');
+	font-weight: 100;
+	font-style: italic;
+}
+
+@font-face {
+	font-family: 'Aleo';
+	src: url('../fonts/aleo/Aleo-Regular-webfont.eot');
+	src: url('../fonts/aleo/Aleo-Regular-webfont.eot?#iefix') format('embedded-opentype'),
+	url('../fonts/aleo/Aleo-Regular-webfont.woff2') format('woff2'),
+	url('../fonts/aleo/Aleo-Regular-webfont.woff') format('woff'),
+	url('../fonts/aleo/Aleo-Regular-webfont.ttf') format('truetype'),
+	url('../fonts/aleo/Aleo-Regular-webfont.svg#aleoregular') format('svg');
+	font-weight: normal;
+	font-style: normal;
+}
+
+/**
+ * Icons
+ */
+@font-face {
+	font-family: 'icomoon';
+	src: url('../fonts/glyphs/icomoon.eot?xrrogg');
+	src: url('../fonts/glyphs/icomoon.eot?#iefixxrrogg') format('embedded-opentype'),
+	url('../fonts/glyphs/icomoon.woff?xrrogg') format('woff'),
+	url('../fonts/glyphs/icomoon.ttf?xrrogg') format('truetype'),
+	url('../fonts/glyphs/icomoon.svg?xrrogg#icomoon') format('svg');
+	font-weight: normal;
+	font-style: normal;
+}
+
+[class^="icon-"],
+[class*=" icon-"] {
+	font-family: 'icomoon';
+	speak: none;
+	font-style: normal;
+	font-weight: normal;
+	font-variant: normal;
+	text-transform: none;
+	line-height: 1;
+
+	/* Better Font Rendering =========== */
+	-webkit-font-smoothing: antialiased;
+	-moz-osx-font-smoothing: grayscale;
+}
+
+.icon-calander:before {
+	content: "\e600";
+}
+
+.icon-cycle:before {
+	content: "\e601";
+}
+
+.icon-rocket:before {
+	content: "\e602";
+}
+
+.icon-exit:before {
+	content: "\e603";
+}
+
+.icon-hamburger:before {
+	content: "\e604";
+}
+
+.icon-arrow-left:before {
+	content: "\e605";
+}
+
+.icon-arrow-right:before {
+	content: "\e606";
+}
+
+.icon-diamond:before {
+	content: "\e607";
+}
+
+.icon-facebook:before {
+	content: "\e608";
+}
+
+.icon-linked-in:before {
+	content: "\e609";
+}
+
+.icon-phone:before {
+	content: "\e60a";
+}
+
+.icon-search:before {
+	content: "\e60b";
+}
+
+.icon-twitter:before {
+	content: "\e60c";
+}
+
+.icon-comparator:before {
+	content: "\e60d";
+}
+
+.icon-bioequivalence:before {
+	content: "\e60e";
+}
+
+.icon-biosimilar:before {
+	content: "\e60f";
+}
+
+.icon-cost-management:before {
+	content: "\e610";
+}
+
+.icon-download:before {
+	content: "\e611";
+}
+
+.icon-education:before {
+	content: "\e612";
+}
+
+.icon-life-cycle:before {
+	content: "\e613";
+}
+
+.icon-product-integrity:before {
+	content: "\e614";
+}
+
+.icon-project-management:before {
+	content: "\e615";
+}
+
+.icon-strategic-insights:before {
+	content: "\e616";
+}
+
+.icon-supply-assurance:before {
+	content: "\e617";
+}
+
+.icon-supply-chain:before {
+	content: "\e618";
+}
+
+.icon-treatment-continuity:before {
+	content: "\e619";
+}

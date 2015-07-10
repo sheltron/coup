@@ -1,0 +1,46 @@
+@media print {
+	body {
+		background: #fff;
+		color: #000;
+		margin: 0;
+		padding: 2em 0;
+	}
+
+	#header,
+	#content,
+	#comments,
+	#sidebar,
+	#footer,
+	img,
+	.icon-wrapper,
+	.content .section.slide-show { display: none !important; }
+
+	header.header {
+		margin: 0 !important;
+		padding: 0 !important;
+	}
+
+	.content .section {
+		padding: 0 !important;
+	}
+
+	.content .section.parallax {
+		min-height: 0 !important;
+	}
+
+	.content .section.faux-parallax, .content .section.parallax {
+		height: auto !important;
+	}
+
+	.site-description { display: none !important; }
+	.site-title { display: none !important; }
+
+	h1, h2, h3, h4, h5, h6 {
+		page-break-after: avoid;
+		page-break-inside: avoid;
+	}
+
+	blockquote, table, pre { page-break-inside: avoid; }
+	ul, ol, dl { page-break-before: avoid; }
+
+}
