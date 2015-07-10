@@ -10,12 +10,12 @@ module.exports = function(grunt) {
 			},
 
 			sass: {
-				files: ['assets/sass/**/*.{scss,sass}', 'assets/scss/_partials/**/*.{scss,sass}'],
+				files: ['public/assets/sass/**/*.{scss,sass}', 'public/assets/scss/_partials/**/*.{scss,sass}'],
 				tasks: ['sass:dist']
 			},
 
 			js: {
-				files: ['assets/js/source/**/*.js'],
+				files: ['public/assets/js/source/**/*.js'],
 				tasks: ['uglify:dev']
 			}
 		},
@@ -32,9 +32,9 @@ module.exports = function(grunt) {
 			dist:    {
 				files: [{
 	        expand: true,
-	        cwd:    'assets/sass',
+	        cwd:    'public/assets/sass',
 	        src:    ['**/*.scss'],
-	        dest:   'assets/css/',
+	        dest:   'public/assets/css/',
 	        ext:    '.css'
         }]
 			}
@@ -44,11 +44,11 @@ module.exports = function(grunt) {
 			dev: {
 				options: {
 					sourceMap:     true,
-					sourceMapName: 'assets/js/source.js.map'
+					sourceMapName: 'public/assets/js/source.js.map'
 				},
 				files:   {
-					'assets/js/app.min.js': [
-						'assets/js/source/master.js'
+					'public/assets/js/app.min.js': [
+						'public/assets/js/source/master.js'
 					]
 				}
 			}

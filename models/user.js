@@ -6,12 +6,12 @@ var extend = require('node.extend');
 /**
  * User model
  *
- * @param {mixed} options
+ * @param {object} options
  */
 module.exports = function(options) {
 	options = extend({
-		name: 'Anonymous',
-		wins: 0,
+		name:   'Anonymous',
+		wins:   0,
 		played: 0
 	}, options);
 

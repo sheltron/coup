@@ -6,17 +6,25 @@ var extend = require('node.extend');
 /**
  * Room model
  *
- * @param {mixed} options
+ * @param {object} options
  */
 module.exports = function(options) {
 	options = extend({
-		users: {}
+		users: []
 	}, options);
 
 	this.users = options.users;
 
 	this.addUser = function(user) {
 		this.users.push(user);
+	};
+
+	this.addUsers = function(users) {
+		for(var i in users) {
+			if(users.hasOwnProperty(i)) {
+				this.addUser(users[i]);
+			}
+		}
 	};
 
 	this.message = function(msg) {
