@@ -1,15 +1,14 @@
+// Load required libraries
 var express = require('express');
 var app = express();
 var http = require('http').Server(app);
 var io = require('socket.io')(http);
 var extend = require('node.extend');
 
-app.use('/assets', express.static(__dirname + '/public/assets'));
+// Routes
+require(__dirname + '/config/routes.js')(app, __dirname + '/public');
 
-app.get('/', function(req, res) {
-	res.sendFile(__dirname + '/public/index.html');
-});
-
+// Load in models
 var User = require(__dirname + '/models/user.js');
 var Room = require(__dirname + '/models/room.js');
 
