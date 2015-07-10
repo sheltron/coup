@@ -9,8 +9,8 @@ var extend = require('node.extend');
 require(__dirname + '/config/routes.js')(app, __dirname + '/public');
 
 // Load in models
-var User = require(__dirname + '/models/user.js');
-var Room = require(__dirname + '/models/room.js');
+var User = require(__dirname + '/models/user.js')(app, io);
+var Room = require(__dirname + '/models/room.js')(app, io);
 
 var ceagon = new User({
 	name:   'Ceagon',
