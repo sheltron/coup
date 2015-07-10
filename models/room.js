@@ -15,23 +15,22 @@ module.exports = function(app, io) {
 		this.users = options.users;
 
 		/**
-		 * Add a single user to the room
+		 * Add a user / multiple users to a room
 		 *
 		 * @param user
 		 */
-		this.addUser = function(user) {
-			this.users.push(user);
-		};
-
-		/**
-		 * Add multiple users to the room
-		 * @param users
-		 */
-		this.addUsers = function(users) {
-			for(var i in users) {
-				if(users.hasOwnProperty(i)) {
-					this.addUser(users[i]);
+		this.addUser = this.addUsers = function(user) {
+			// If user is an array...
+			if(typeof user.length !== 'undefined') {
+				for(var i in user) {
+					if(user.hasOwnProperty(i)) {
+						this.addUser(user[i]);
+					}
 				}
+			}
+			// Else, assume user is a singleton
+			else {
+				this.users.push(user);
 			}
 		};
 

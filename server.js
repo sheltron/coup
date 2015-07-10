@@ -19,7 +19,7 @@ var ceagon = new User({
 });
 
 var room = new Room();
-room.addUsers([ceagon]);
+room.addUser([ceagon]);
 
 room.message(function(room) {
 	return 'Room created -> ' + room.users.length + ' users in room\n\tUsers: ' + JSON.stringify(room.users);
