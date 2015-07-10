@@ -38,10 +38,11 @@ room.dealHand();
 //	return 'Room created -> ' + room.users.length + ' users in room\n\tUsers: ' + JSON.stringify(room.users);
 //});
 
-console.log(room.seats);
-
 io.on('connection', function(socket) {
 	console.log('a user connected');
+
+	console.log(room.seats[0].cards);
+	socket.emit('update cards', room.seats[0].cards);
 
 	socket.on('disconnect', function() {
 		console.log('user disconnected');

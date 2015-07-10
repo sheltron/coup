@@ -42,7 +42,6 @@ form {
 	width: 280px;
 	height: 420px;
 	background: #aaa;
-	@include background-image(linear-gradient(to bottom right, #516ECF, #282E75));
 	@include border-radius(9px);
 	display: table;
 	text-align: center;
@@ -57,7 +56,27 @@ form {
 		vertical-align: middle;
 	}
 
+	&.captain {
+		@include background-image(linear-gradient(to bottom right, #516ECF, #282E75));
+	}
+
 	&.contessa {
+		@include background-image(linear-gradient(to bottom right, #AB462B, #662411));
+	}
+
+	&.assassin {
+		@include background-image(linear-gradient(to bottom right, #4F4F4F, #1A1A1A));
+	}
+
+	&.duke {
 		@include background-image(linear-gradient(to bottom right, #AD4BA2, #752861));
+	}
+
+	&.ambassador {
+		@include background-image(linear-gradient(to bottom right, #85B063, #4F7332));
+	}
+
+	&.inquisitor {
+		@include background-image(linear-gradient(to bottom right, #A7AB30, #6B6019));
 	}
 }

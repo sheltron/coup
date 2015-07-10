@@ -1,4 +1,5 @@
 module.exports = function(app, io) {
+
 	var extend = require('node.extend');
 
 	/**
@@ -16,6 +17,13 @@ module.exports = function(app, io) {
 
 		this.user = options.user;
 		this.cards = options.cards;
+
+		/**
+		 * Update view with current cards
+		 */
+		this.updateCardsView = function() {
+			socket.emit('update cards', this.cards);
+		};
 	}
 
 	return Seat;

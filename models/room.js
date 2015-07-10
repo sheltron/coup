@@ -88,11 +88,9 @@ module.exports = function(app, io) {
 		this.message = function(msg) {
 			if(typeof msg === 'string') {
 				io.emit('chat message', msg);
-				console.log(msg);
 			}
 			else if(typeof msg === 'function') {
 				io.emit('chat message', msg(this));
-				console.log(msg(this));
 			}
 		};
 
