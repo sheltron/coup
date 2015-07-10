@@ -1,6 +1,7 @@
-var extend = require('node.extend');
-
 module.exports = function(app, io) {
+
+	var extend = require('node.extend');
+
 	/**
 	 * User model
 	 *
@@ -19,16 +20,8 @@ module.exports = function(app, io) {
 		this.wins = options.wins;
 		this.played = options.played;
 		this.timeOnline = options.timeOnline;
-
-		/**
-		 * Adds this user a room
-		 *
-		 * @param room
-		 */
-		this.joinRoom = function(room) {
-			room.addUser(this);
-		};
 	}
 
 	return User;
+
 };

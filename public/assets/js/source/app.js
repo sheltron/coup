@@ -8,8 +8,14 @@
 	$('form').submit(function(event) {
 		event.preventDefault();
 
-		socket.emit('chat message', $('#m').val());
-		$('#m').val('');
+		if($('#m').val() !== '') {
+			socket.emit('chat message', $('#m').val());
+			$('#m').val('');
+
+			$('#messages').stop().animate({
+				scrollTop: $('#messages').get(0).scrollHeight
+			});
+		}
 
 		return false;
 	});
