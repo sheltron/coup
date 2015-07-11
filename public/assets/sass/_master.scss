@@ -1,8 +1,7 @@
 @import "variables";
 
 #rooms,
-#chatroom,
-#cards {
+#room {
 	display: none;
 }
 
@@ -57,83 +56,83 @@
 	}
 }
 
-// Chatroom
-#chatroom {
-	@include make-md-column(12);
-	background: #000;
-	padding: 3px;
+#room {
+	// Chatroom
+	#chatroom {
+		ul,
+		form {
+			@include make-md-column(12);
+			padding: 3px;
+		}
 
-	input {
-		border: 0;
-		padding: 10px;
-		width: 90%;
-		margin-right: .5%;
-	}
-
-	button {
-		width: 9%;
-		background: $brand-primary;
-		border: none;
-		padding: 10px;
-	}
-}
-
-#messages {
-	height: 20em;
-	overflow: auto;
-	list-style-type: none;
-	margin: 0;
-	padding: 0;
-
-	li {
-		padding: 5px 10px;
-
-		&:nth-child(odd) {
-			background: #eee;
+		input,
+		button {
+			width: 100%;
 		}
 	}
-}
 
-// Cards
-.card {
-	width: 280px;
-	height: 420px;
-	background: #aaa;
-	@include border-radius(9px);
-	display: table;
-	text-align: center;
-	color: #fff;
-	font-weight: bold;
-	text-transform: uppercase;
-	float: left;
-	margin: 20px;
+	#messages {
+		height: 20em;
+		overflow: auto;
+		list-style-type: none;
+		margin: 0;
+		padding: 0;
 
-	span {
-		display: table-cell;
-		vertical-align: middle;
+		li {
+			padding: 5px 10px;
+
+			&:nth-child(odd) {
+				background: #eee;
+			}
+		}
 	}
 
-	&.captain {
-		@include background-image(linear-gradient(to bottom right, #516ecf, #282e75));
-	}
+	// Cards
+	#cards {
+		width: 640px;
+		margin: 0 auto;
+		
+		.card {
+			width: 280px;
+			height: 420px;
+			background: #aaa;
+			@include border-radius(9px);
+			display: table;
+			text-align: center;
+			color: #fff;
+			font-weight: bold;
+			text-transform: uppercase;
+			float: left;
+			margin: 20px;
 
-	&.contessa {
-		@include background-image(linear-gradient(to bottom right, #ab462b, #662411));
-	}
+			span {
+				display: table-cell;
+				vertical-align: middle;
+			}
 
-	&.assassin {
-		@include background-image(linear-gradient(to bottom right, #4f4f4f, #1a1a1a));
-	}
+			&.captain {
+				@include background-image(linear-gradient(to bottom right, #516ecf, #282e75));
+			}
 
-	&.duke {
-		@include background-image(linear-gradient(to bottom right, #ad4ba2, #752861));
-	}
+			&.contessa {
+				@include background-image(linear-gradient(to bottom right, #ab462b, #662411));
+			}
 
-	&.ambassador {
-		@include background-image(linear-gradient(to bottom right, #85b063, #4f7332));
-	}
+			&.assassin {
+				@include background-image(linear-gradient(to bottom right, #4f4f4f, #1a1a1a));
+			}
 
-	&.inquisitor {
-		@include background-image(linear-gradient(to bottom right, #a7ab30, #6b6019));
-	}
+			&.duke {
+				@include background-image(linear-gradient(to bottom right, #ad4ba2, #752861));
+			}
+
+			&.ambassador {
+				@include background-image(linear-gradient(to bottom right, #85b063, #4f7332));
+			}
+
+			&.inquisitor {
+				@include background-image(linear-gradient(to bottom right, #a7ab30, #6b6019));
+			}
+		}
+	}	
 }

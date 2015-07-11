@@ -1,7 +1,7 @@
 <!doctype html>
 <html>
 <head>
-	<title>Socket.IO chat</title>
+	<title>Node Coup</title>
 
 	<link rel="stylesheet" href="assets/css/app.css" />
 </head>
@@ -41,20 +41,50 @@
 	</div>
 </div>
 
-<div class="container">
-	<div class="row">
-		<div id="cards"></div>
+<div id="room">
+	<div class="container">
+		<div class="row">
+			<div class="col-md-8 col-md-push-2">
+				<h2>Your cards</h2>
+			</div>
+
+			<div id="cards">
+				<!--<div class="card captain"><span>Captain</span></div>-->
+				<!--<div class="card contessa"><span>Contessa</span></div>-->
+			</div>
+		</div>
 	</div>
-</div>
 
-<div id="chatroom" class="container">
-	<div class="row">
-		<ul id="messages"></ul>
+	<div id="chatroom" class="container">
+		<div class="row">
+			<div class="col-md-8 col-md-push-2">
+				<h2>Chatroom</h2>
 
-		<form>
-			<input name="message" autocomplete="off" />
-			<button>Send</button>
-		</form>
+				<div class="row">
+					<ul id="messages"></ul>
+
+					<form class="form-inline">
+						<div class="form-group col-md-10">
+							<input class="form-control" name="message" autocomplete="off" />
+						</div>
+
+						<div class="form-group col-md-2">
+							<button class="btn btn-primary">Send</button>
+						</div>
+					</form>
+				</div>
+			</div>
+		</div>
+	</div>
+
+	<div id="room-actions" class="container">
+		<div class="row">
+			<div class="col-md-8 col-md-push-2">
+				<h2>Room actions</h2>
+
+				<button data-room-action="deal" data-room-id="0">Deal / Redeal</button>
+			</div>
+		</div>
 	</div>
 </div>
 

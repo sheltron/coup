@@ -25,8 +25,6 @@ module.exports = function(app, io) {
 
 		/**
 		 * Generate a fresh deck
-		 *
-		 * @returns {Array}
 		 */
 		this.freshDeck = function(options) {
 			options = extend({
@@ -34,19 +32,21 @@ module.exports = function(app, io) {
 				types:         global.cardTypes
 			}, options);
 
-			var deck = [];
+			for(var s = 0; s < this.seats.length; s++) {
+				this.seats[s].cards = [];
+			}
+
+			this.deck = [];
 
 			for(var j = 0; j < options.numberOfCards; j++) {
 				for(var t in options.types) {
-					deck.push(new Card(options.types[t]));
+					this.deck.push(new Card(options.types[t]));
 				}
 			}
-
-			return deck;
 		};
 
 		/**
-		 * Add a user / multiple users to the room
+		 * Add a user / multiple users and their seat to the room
 		 *
 		 * @param user
 		 */
@@ -61,6 +61,28 @@ module.exports = function(app, io) {
 			else {
 				this.users.push(user);
 				this.addSeat(new Seat({user: user}));
+			}
+		};
+
+		/**
+		 * Removes a user and their seat from the room
+		 * @param user
+		 */
+		this.removeUser = function(user) {
+			// Foreach through users and remove the appropriate one
+			for(var u = 0; u < this.users.length; u++) {
+				if(user === this.users[u]) {
+					this.users.splice(u, 1);
+					break;
+				}
+			}
+
+			// Foreach through seats an remove the seat that is related to this user
+			for(var s = 0; s < this.seats.length; s++) {
+				if(user === this.seats[s].user) {
+					this.seats.splice(s, 1);
+					break;
+				}
 			}
 		};
 
@@ -108,7 +130,7 @@ module.exports = function(app, io) {
 		/**
 		 * Deal 2 cards out to each seat
 		 */
-		this.dealHand = function() {
+		this.shuffleAndDealHand = function() {
 			this.shuffleDeck();
 
 			// 2 cards per seat

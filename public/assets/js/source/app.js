@@ -36,12 +36,10 @@
 
 			var a = $('<a/>').text(room.name)
 				.attr('href', '#!room=' + r)
-				.bind('click', function() {
-					//var id = $(this).attr('href').match(/!(?:.*?)room=(\d*)/)[1];
-					//
-					//console.log(id);
+				.bind('click', function(event) {
+					event.preventDefault();
 
-					socket.emit('enter room', r);
+					socket.emit('join room', r);
 
 					$('#rooms').fadeOut(function() {
 						$('#room').fadeIn();
@@ -78,7 +76,7 @@
 		$('#chatroom form').bind('submit', function(event) {
 			event.preventDefault();
 
-			var m = $('#chatroom input[name="message]"');
+			var m = $('#chatroom input[name="message"]');
 
 			if($(m).val() !== '') {
 				socket.emit('chat message', $(m).val());
@@ -87,6 +85,10 @@
 			}
 
 			return false;
+		});
+
+		$('#room-actions [data-room-action="deal"]').on('click', function() {
+			socket.emit('deal', $(this).attr('data-room-id'))
 		});
 	});
 

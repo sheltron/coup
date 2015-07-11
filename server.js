@@ -18,23 +18,6 @@ var Room = require(__dirname + '/models/room.js')(app, io);
 var users = [];
 var rooms = [];
 
-var ceagon = new User({
-	name:   'Ceagon',
-	wins:   1,
-	played: 2
-});
-
-var sheltron = new User({
-	name:   'Sheltron',
-	wins:   1,
-	played: 2
-});
-
-var room = new Room();
-room.addUser([ceagon, sheltron]);
-room.newGame();
-room.dealHand();
-
 //room.message(function(room) {
 //	return 'Room created -> ' + room.users.length + ' users in room\n\tUsers: ' + JSON.stringify(room.users);
 //});
@@ -60,8 +43,6 @@ io.on('connection', function(socket) {
 			name: roomName
 		});
 
-		room.addUser(user);
-
 		rooms.push(room);
 
 		socket.emit('update rooms', rooms);
@@ -69,8 +50,10 @@ io.on('connection', function(socket) {
 		console.log('Room created (' + roomName + ')');
 	});
 
-	socket.on('enter room', function(id) {
-		console.log('User (' + user.name + ') is entering room #' + id);
+	socket.on('join room', function(id) {
+		rooms[id].addUser(user);
+
+		console.log('User (' + user.name + ') joined room #' + id + ' (' + rooms[id].name + ')');
 	});
 
 	//socket.emit('update cards', room.seats[0].cards);
@@ -81,16 +64,32 @@ io.on('connection', function(socket) {
 		for(var u in users) {
 			if(users[u] === user) {
 				username = users[u].name;
-				delete users[u];
+
+				for(var r = 0; r < rooms.length; r++) {
+					rooms[r].removeUser(users[u]);
+				}
+
+				// Remove user
+				users.splice(u, 1);
+
+				console.log('User disconnected (' + username + ')');
+
 				break;
 			}
 		}
-
-		console.log('User disconnected (' + username + ')');
 	});
 
 	socket.on('chat message', function(msg) {
 		io.emit('chat message', msg);
+	});
+
+	socket.on('deal', function(roomID) {
+		rooms[roomID].freshDeck();
+		rooms[roomID].shuffleAndDealHand();
+
+		socket.emit('update cards', rooms[roomID].seats[0].cards);
+
+		console.log('Room #' + roomID + ' redealt cards.');
 	});
 });
 
