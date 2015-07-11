@@ -11,6 +11,8 @@ module.exports = function() {
 		'duke'
 	];
 
+	global.nextRoomID = 0;
+
 	/**
 	 * Global functions / prototypes
 	 */

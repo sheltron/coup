@@ -14,8 +14,9 @@ require(__dirname + '/config/routes.js')(app, __dirname + '/public');
 // Load in models
 var User = require(__dirname + '/models/user.js')(app, io);
 var Room = require(__dirname + '/models/room.js')(app, io);
-var Seat = require(__dirname + '/models/seat.js')(app, io);
-var Card = require(__dirname + '/models/card.js')(app, io);
+
+var users = [];
+var rooms = [];
 
 var ceagon = new User({
 	name:   'Ceagon',
@@ -39,13 +40,53 @@ room.dealHand();
 //});
 
 io.on('connection', function(socket) {
-	console.log('a user connected');
+	var user = null;
 
-	console.log(room.seats[0].cards);
-	socket.emit('update cards', room.seats[0].cards);
+	socket.on('user login', function(username) {
+		user = new User({
+			name: username
+		});
+
+		users.push(user);
+		socket.emit('update rooms', rooms);
+
+		console.log('User logged in (' + username + ')');
+
+		return true;
+	});
+
+	socket.on('create room', function(roomName) {
+		var room = new Room({
+			name: roomName
+		});
+
+		room.addUser(user);
+
+		rooms.push(room);
+
+		socket.emit('update rooms', rooms);
+
+		console.log('Room created (' + roomName + ')');
+	});
+
+	socket.on('enter room', function(id) {
+		console.log('User (' + user.name + ') is entering room #' + id);
+	});
+
+	//socket.emit('update cards', room.seats[0].cards);
 
 	socket.on('disconnect', function() {
-		console.log('user disconnected');
+		var username = '';
+
+		for(var u in users) {
+			if(users[u] === user) {
+				username = users[u].name;
+				delete users[u];
+				break;
+			}
+		}
+
+		console.log('User disconnected (' + username + ')');
 	});
 
 	socket.on('chat message', function(msg) {

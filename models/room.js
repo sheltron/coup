@@ -12,11 +12,13 @@ module.exports = function(app, io) {
 	 */
 	function Room(options) {
 		options = extend({
+			name:  'New room',
 			users: [],
 			seats: [],
 			deck:  []
 		}, options);
 
+		this.name = options.name;
 		this.users = options.users;
 		this.seats = options.seats;
 		this.deck = options.deck;
