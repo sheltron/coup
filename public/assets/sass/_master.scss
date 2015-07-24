@@ -111,27 +111,27 @@
 			}
 
 			&.captain {
-				@include background-image(linear-gradient(to bottom right, #516ecf, #282e75));
+				@include background-image(linear-gradient(to bottom right, $color-captain, $color-captain-dark));
 			}
 
 			&.contessa {
-				@include background-image(linear-gradient(to bottom right, #ab462b, #662411));
+				@include background-image(linear-gradient(to bottom right, $color-contessa, $color-contessa-dark));
 			}
 
 			&.assassin {
-				@include background-image(linear-gradient(to bottom right, #4f4f4f, #1a1a1a));
+				@include background-image(linear-gradient(to bottom right, $color-assassin, $color-assassin-dark));
 			}
 
 			&.duke {
-				@include background-image(linear-gradient(to bottom right, #ad4ba2, #752861));
+				@include background-image(linear-gradient(to bottom right, $color-duke, $color-duke-dark));
 			}
 
 			&.ambassador {
-				@include background-image(linear-gradient(to bottom right, #85b063, #4f7332));
+				@include background-image(linear-gradient(to bottom right, $color-ambassador, $color-ambassador-dark));
 			}
 
 			&.inquisitor {
-				@include background-image(linear-gradient(to bottom right, #a7ab30, #6b6019));
+				@include background-image(linear-gradient(to bottom right, $color-inquisitor, $color-inquisitor-dark));
 			}
 		}
 	}	
