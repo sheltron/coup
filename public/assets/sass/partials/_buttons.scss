@@ -1,0 +1,24 @@
+.btn {
+  width: 100%;
+  color: #fff;
+
+  &.std {
+    @include background-image(linear-gradient(to bottom right, $color-gray-light, $color-gray-medium));
+  }
+
+  &.tax {
+    @include background-image(linear-gradient(to bottom right, $color-duke, $color-duke-dark));
+  }
+
+  &.assassinate {
+    @include background-image(linear-gradient(to bottom right, $color-assassin, $color-assassin-dark));
+  }
+
+  &.exchange {
+    @include background-image(linear-gradient(to bottom right, $color-ambassador, $color-ambassador-dark));
+  }
+
+  &.steal {
+    @include background-image(linear-gradient(to bottom right, $color-captain, $color-captain-dark));
+  }
+}
