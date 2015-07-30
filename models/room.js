@@ -139,6 +139,8 @@ module.exports = function(app, io) {
 					this.dealTopCard(this.seats[s]);
 				}
 			}
+
+			console.log(this.deck);
 		};
 
 		/**
