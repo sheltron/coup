@@ -87,9 +87,12 @@ io.on('connection', function(socket) {
 		rooms[roomID].freshDeck();
 		rooms[roomID].shuffleAndDealHand();
 
-		socket.emit('update cards', rooms[roomID].seats[0].cards);
+		rooms[roomID].seats.forEach(function(e) {
+			socket.emit('update cards', e.cards);
+		});
+		//socket.emit('update cards', rooms[roomID].seats[1].cards);
 
-		console.log('Room #' + roomID + ' redealt cards.');
+		console.log('Room #' + roomID + ' redealt cards. ' + rooms[roomID].seats.length + ' seats taken');
 	});
 });
 
