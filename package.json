@@ -15,11 +15,10 @@
   "devDependencies": {
     "autoprefixer-core": "^5.2.1",
     "bootstrap-sass": "latest",
-    "cssnano": "^2.1.1",
-    "cssnext": "^1.8.2",
     "grunt-contrib-uglify": "latest",
     "grunt-postcss": "^0.5.5",
     "grunt-sass": "latest",
+    "grunt-scss-lint": "^0.3.8",
     "node-bourbon": "^1.2.3"
   },
   "author": "@ceagon",

@@ -1,4 +1,4 @@
-@import "variables";
+@import 'variables';
 
 #rooms,
 #room {
@@ -96,10 +96,9 @@
 			width: 280px;
 			height: 420px;
 			background: #aaa;
-		  	transform: scale(2,3);
 			border-radius: 9px;
 			display: table;
-			//text-align: center;
+			text-align: center;
 			color: #fff;
 			font-weight: bold;
 			text-transform: uppercase;

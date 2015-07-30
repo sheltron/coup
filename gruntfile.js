@@ -31,7 +31,7 @@ module.exports = function (grunt) {
       },
       dist: {
         src: 'public/assets/css/*.css',
-        dest: 'public/assets/css/all.css'
+        dest: 'public/assets/css/app.css'
       }
     },
 
@@ -55,6 +55,16 @@ module.exports = function (grunt) {
       }
     },
 
+    scsslint: {
+      options: {
+        colorizeOutput: true,
+        config: 'public/assets/sass/.scss-lint.yml'
+      },
+      dist: {
+        src: 'public/assets/sass/*.scss'
+      }
+    },
+
     uglify: {
       dev: {
         options: {
@@ -75,9 +85,10 @@ module.exports = function (grunt) {
   grunt.loadNpmTasks('bootstrap-sass');
   grunt.loadNpmTasks('grunt-contrib-uglify');
   grunt.loadNpmTasks('grunt-postcss');
-  grunt.loadNpmTasks('autoprefixer-core');
+  grunt.loadNpmTasks('grunt-scss-lint');
 
   // Default task(s).
+  grunt.registerTask('validate', ['scsslint:dist']);
   grunt.registerTask('production', ['postcss:dist']);
   grunt.registerTask('default', ['watch']);
 };
