@@ -15,7 +15,7 @@ module.exports = function (grunt) {
       },
 
       js: {
-        files: ['public/assets/js/source/**/*.js'],
+        files: ['public/assets/js/source/**/*.js', 'public/bower_components/**/jquery.min.js'],
         tasks: ['uglify:dev']
       }
     },
@@ -74,6 +74,9 @@ module.exports = function (grunt) {
         files: {
           'public/assets/js/app.min.js': [
             'public/assets/js/source/app.js'
+          ],
+          'public/assets/js/vendor.min.js': [
+            'bower_components/jquery/dist/jquery.min.js'
           ]
         }
       }
